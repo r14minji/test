@@ -1,0 +1,133 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+
+
+
+/*
+.wrap {
+    display: grid;
+    grid-template-areas: 'header_wrap header_wrap'
+                         'gnb_area gnb_area'
+                         'main_contents_area side_contents_area'
+                         'footer footer';
+
+}
+
+.wrap div {
+    background: skyblue;
+    padding: 20px;
+    border: 1px solid black;
+}
+
+.header_wrap {
+    grid-area: header_wrap;
+}
+
+.gnb_area {
+    grid-area: gnb_area;
+}
+
+.main_contents_area {
+    grid-area: main_contents_area;
+}
+
+.side_contents_area {
+    grid-area: side_contents_area;
+}
+
+.footer {
+    grid-area: footer;
+}
+*/
+
+
+
+/*
+body {
+    background: burlywood;
+}
+
+ul {
+    list-style-type: none;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+
+}
+
+.header {
+    background: mediumseagreen;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.header .utils_area ul {
+    display: flex;
+}
+
+.gnb_area {
+    background: greenyellow;
+    display: flex;
+    justify-content: space-between;
+}
+
+.gnb_area .nav ul {
+    display: flex;
+    background: grey;
+    width: 800px;
+    justify-content: space-around;
+}
+
+.gnb_area .weather ul {
+    display: flex;
+    background: honeydew;
+    width: 300px;
+    justify-content: flex-end;
+}
+
+
+
+.footer {
+    background: lightpink;
+}
+
+.footer h2 {
+    display: none;
+}
+
+.f_banner_area {
+    display: flex;
+    margin-bottom: 100px;
+}
+
+.f_notice_area  {
+   background: lightseagreen;
+   margin: 40px 0px;
+}
+
+.f_aside_area .partner_box dt {
+    display: flex;
+}
+
+.partner_box {
+    display: flex;
+    margin: 40px 0px;
+}
+
+.f_corp_area ul {
+    display: flex;
+    justify-content: space-around;
+} */
