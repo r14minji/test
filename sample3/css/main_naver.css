@@ -1,6 +1,6 @@
 * {
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
@@ -10,124 +10,356 @@ body {
     height: 100%;
 }
 
-
-
-
-/*
-.wrap {
-    display: grid;
-    grid-template-areas: 'header_wrap header_wrap'
-                         'gnb_area gnb_area'
-                         'main_contents_area side_contents_area'
-                         'footer footer';
-
-}
-
-.wrap div {
-    background: skyblue;
-    padding: 20px;
-    border: 1px solid black;
-}
-
-.header_wrap {
-    grid-area: header_wrap;
-}
-
-.gnb_area {
-    grid-area: gnb_area;
-}
-
-.main_contents_area {
-    grid-area: main_contents_area;
-}
-
-.side_contents_area {
-    grid-area: side_contents_area;
-}
-
-.footer {
-    grid-area: footer;
-}
-*/
-
-
-
-/*
-body {
-    background: burlywood;
-}
-
 ul {
-    list-style-type: none;
+    list-style: none;
 }
 
 img {
     width: 100%;
     height: 100%;
-
 }
 
 .header {
-    background: mediumseagreen;
-    display: flex;
-    justify-content: space-between;
+    background: yellow;
+    width: 1190px;
+    height: 100px;
+    margin: 0px 123.5px;
+    padding: 0px 30px
 }
 
+.logo {
+    float: left;
+    background: rosybrown;
+    position: absolute;
+    top: 30px;
+    left: 180px;
+}
 
-.header .utils_area ul {
-    display: flex;
+.utils_area {
+    float: right;
+    background: sandybrown;
+    line-height: 30px;
+}
+
+.search_area {
+    float: left;
+    background: skyblue;
+    position: absolute;
+    top: 50px;
+    left: 40%;
+}
+
+.utils_area ul {
+    height: 30px;
+}
+
+.utils_area ul li{
+    float: left;
+    padding-left: 10px;
 }
 
 .gnb_area {
-    background: greenyellow;
-    display: flex;
-    justify-content: space-between;
+    border-top: solid 1px gray;
+    border-bottom: solid 1px gray;
 }
 
-.gnb_area .nav ul {
-    display: flex;
-    background: grey;
-    width: 800px;
-    justify-content: space-around;
-}
-
-.gnb_area .weather ul {
-    display: flex;
-    background: honeydew;
-    width: 300px;
-    justify-content: flex-end;
-}
-
-
-
-.footer {
+.nav_wrap {
     background: lightpink;
+    width: 1190px;
+    height: 52px;
+    margin: 0px 123.5px;
+    padding: 0px 30px;
+    line-height: 50px;
+   
 }
 
-.footer h2 {
+
+
+
+.nav {
+    background: aquamarine;
+    height: 100%;
+    float: left;
+}
+
+nav ul {
+    height: 30px;
+    float: left;
+}
+
+.nav>ul>li {
+    float: left;
+    padding: 0px 20px;
+    position: relative;
+}
+
+.nav li .sub {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    background: white;
+    width: 90px;
+    height: 300px;
     display: none;
 }
 
+.nav>ul>li:hover .sub {
+    display: block;
+}
+
+.weather {
+    background: lightsalmon;
+    height: 100%;
+}
+
+.weather ul {
+    float: right;
+}
+
+.weather ul li {
+    float: left;
+    padding: 0px 20px;
+}
+
+
+.contents_wrap {
+    background: lightgray;
+    width: 1190px;
+    height: 730px;
+    padding: 20px 30px;
+    margin: 0px 123.5px;
+}
+
+.main_contents_area {
+    background: honeydew;
+    width: 750px;
+    height: 100%;
+    float: left;
+}
+
+
+
+.main_banner img {
+    width: 100%;
+    height: 100%;
+    float: left;
+}
+
+.newsstand_area {
+    height: 230px;
+    background: rgb(182, 101, 240);
+    float: left;
+  
+}
+.sum_news {
+    background: indianred;
+    padding: 5px 10px;
+
+}
+.newsstand_area ul{
+    float: left;
+    padding-top: 5px;
+}
+
+.newsstand_area ul li {
+    float: left;
+    width: 124.61px;
+    padding: 30px 0px;
+    border: 1px solid gray
+}
+
+.newsstand_area ul li img {
+    width: 100%;
+    height: 20px;
+}
+
+.today_article {
+    background: lightblue;
+    width: 750px;
+    height: 345px;
+    float: left;
+}
+
+.topic {
+    background: lightseagreen;
+}
+
+.point {
+    width: 364px;
+    float: left;
+}
+
+
+.point img {
+    height: 180px;
+}
+
+.sub {
+    width: 364px;
+    float: right;
+}
+
+.sub img {
+    width: 98px;
+    height: 98px;
+    float: left;
+}
+
+.side_contents_area {
+    width: 350px;
+    height: 180px;
+    float: right;
+}
+
+.login {
+    width: 350px;
+    height: 135px;
+    padding: 16px 16px 12px 17px;
+    background: lightyellow;
+}
+
+.login h2 {
+    text-align: center;
+}
+
+.login_bottom {
+    margin: 5px 10px;
+    background: sandybrown;
+    height: 30px;
+}
+.login p {
+    text-align: center;
+    float: left;
+}
+
+.login_bottom .bottom_a {
+    float: left;
+}
+
+.login_bottom .bottom_b {
+    float: right;
+}
+
+.footer {
+    clear: both;
+}
+
+.economy {
+    background: seagreen;
+    width: 350px;
+    height: 47px;
+}
+
+.shopping_area {
+    background: skyblue;
+
+}
+
+.trend_shopping {
+    background: slateblue;
+    height: 50px;
+}
+
+.shop_header {
+    height: 30px;
+}
+
+.shop_header ul {
+    float: left;
+    margin: 5px 10px;
+}
+
+.shop_header ul li {
+    float: left;
+    padding-right: 10px;
+}
+
+.shop_contents {
+    background: cornsilk;
+
+
+}
+.shop_contents .table {
+    float: left;
+    margin-right: 5px;
+}
+
+/*
+.shop_contents .a {
+    margin-left: 6.5px;
+}*/
+
+.shop_contents img {
+    width: 107.31px;
+    height: 146px;
+}
+
+.footer{
+    background: yellow;
+    width: 1190px;
+    height: 300px;
+    margin: 0px 123.5px;
+    padding: 0px 30px
+}
+
 .f_banner_area {
-    display: flex;
-    margin-bottom: 100px;
+
 }
 
-.f_notice_area  {
-   background: lightseagreen;
-   margin: 40px 0px;
+.box {
+    float: left;
+    padding: 24px 0px;
 }
 
-.f_aside_area .partner_box dt {
-    display: flex;
+.box img {
+    width: 160px;
+    height: 86px;
+    float: left;
+    padding-left: 10px;
 }
 
-.partner_box {
-    display: flex;
-    margin: 40px 0px;
+.smallbox {
+    width: 190px;
+    height: 86px;
+    float: left;
+    margin-left: 25px;
 }
 
-.f_corp_area ul {
-    display: flex;
-    justify-content: space-around;
-} */
+.f_notice_area a {
+    background: greenyellow;
+}
+
+
+.f_aside_area {
+    background: lightblue;
+    height: 80px;
+}
+
+.partner_box dl {
+    clear: both;
+}
+
+.partner_box dt {
+    float: left;
+    width: 87px;
+    height: 16px;
+}
+
+.partner_box ul {
+    float: left;
+}
+
+.partner_box ul li {
+    float: left;
+    padding-right: 20px;
+}
+
+.f_corp_area {
+     background: lightcoral;
+     height: 20px;
+}
+
+.f_corp_area ul li {
+    float: left;
+    padding-right: 20px;
+}

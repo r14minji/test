@@ -53,16 +53,31 @@ img {
     float: left;
 }
 
-.gnb_menu ul {
+.gnb_menu>ul {
     float: left;
     height: 100%;
 }
 
-.gnb_menu ul li {
+.gnb_menu>ul>li {
     float: left;
     line-height: 40px;
     margin-right: 20px;
+    position: relative;
 }
+
+.gnb_menu .sub {
+    position: absolute;
+    top: 30px;
+    left: 0;
+    z-index: 10;
+    background:white ;
+    display: none;
+}
+
+.gnb_menu>ul>li:hover .sub {
+    display: block;
+}
+
 
 .logo {
     float: left;
