@@ -83,6 +83,7 @@ img {
 
 .contents_area .card_banner {
     display: flex;
+    justify-content: space-around;
     margin-top: 100px;
 }
 
