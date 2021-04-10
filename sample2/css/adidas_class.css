@@ -57,8 +57,8 @@ img {
     float: left;
     height: 100%;
 }
-
-.gnb_menu>ul>li {
+/* >의미가 무엇인지? */
+.gnb_menu>ul>li { 
     float: left;
     line-height: 40px;
     margin-right: 20px;
@@ -140,5 +140,73 @@ img {
     margin: 0px 2%;
 }
 
+/* main_adidas css에서 가지고 왔음: flex정렬 */
+.best_product {
+    background: yellow;
+    margin: 40px 80px;
+}
+
+.best_product h1 {
+    text-align: center;
+}
+
+.item_area {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0px;
+}
+
+.item_area .item {
+    width: 230px;
+    height: 200px;
+}
+
+.footer_area {
+    background: crimson;
+}
+
+.f_menu_area {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0px 60px;
+    height: 60px;
+}
+
+.f_menu {
+    background: cornsilk;
+}
+
+.SNS {
+    background: thistle;
+}
+
+.f_menu_area ul {
+    display: flex;
+}
+
+.f_menu_area ul li {
+    padding-right: 15px;
+}
+
+.f_menu_area ul li:last-child {
+    padding-right: 0px;
+}
+
+.sitemap {
+    display: flex;
+    margin-bottom: 100px;
+    display: flex;
+    justify-content: space-around;
+    padding-bottom: 60px;
+}
+
+dt {
+    padding: 10px 0px;
+}
+
+.footer_area .sitemap ul li {
+    padding-bottom: 1px;
+}
 
 
