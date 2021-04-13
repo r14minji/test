@@ -41,7 +41,7 @@ window.onload = function() {
 
     //banner_area
     const BannerArea = document.querySelector('.banner_area');
-    const Bimg = document.createElement('IMG'); //요소 소문자로 작성해도 되는지?
+    const Bimg = document.createElement('IMG'); //요소 소문자로 작성해도 되는지?ㅇㅇ
     Bimg.src = "https://image.adidas.co.kr/upload/banner/a28d4598dd984e8c87c26dc6689d8f7e_0222095110.JPG"
     Bimg.art = "아디다스 공식 온라인 홈페이지 홍보물입니다."
     BannerArea.appendChild(Bimg);
@@ -49,7 +49,7 @@ window.onload = function() {
     Bbutton.className = 'buy';
     Bbutton.innerText = '구매하기';
     BannerArea.appendChild(Bbutton);
-    const BBbutton = document.createElement('BUTTON'); // 버튼요소가 2개면 매번 각각 생성해주는건지? 변수명은 다르게 작성하는것 맞는지?
+    const BBbutton = document.createElement('BUTTON'); // 버튼요소가 2개면 매번 각각 생성해주는건지? ㅇㅇ변수명은 다르게 작성하는것 맞는지?ㅇㅇ
     BBbutton.className = 'detail';
     BBbutton.innerText = '자세히 보기';
     BannerArea.appendChild(BBbutton);
@@ -57,29 +57,45 @@ window.onload = function() {
 
 
 
-    //window_banner //map 함수 button은 어떻게 만드는건지...?
-    const BWlinks = ['https://image.adidas.co.kr/upload/banner/174df423138247e689a80e1d7356f65d_0205165958.JPG', 'https://image.adidas.co.kr/upload/banner/588ec794838f4252ab424f29e7c80d9d_0226134623.jpg', 'https://image.adidas.co.kr/upload/banner/ec600721ca254075be354a5400160b7b_0219105556.jpg','https://image.adidas.co.kr/upload/banner/12680e1c5ad64bbd8cffaa4f73298c94_0303110225.jpg']
+    //window_banner 배열함수가 2개가 아니라 객체로 하나의 배열을 만드는 것!
+    const BWlinks = [
+        {
+            src:'https://image.adidas.co.kr/upload/banner/174df423138247e689a80e1d7356f65d_0205165958.JPG', 
+            BUTTON: '구매하기'
+        },
+        {
+            src:'https://image.adidas.co.kr/upload/banner/588ec794838f4252ab424f29e7c80d9d_0226134623.jpg', 
+            BUTTON: '구매하기'
+        },
+        {
+            src:'https://image.adidas.co.kr/upload/banner/ec600721ca254075be354a5400160b7b_0219105556.jpg', 
+            BUTTON: '자세히 보기'
+        },
+        {
+            src:'https://image.adidas.co.kr/upload/banner/12680e1c5ad64bbd8cffaa4f73298c94_0303110225.jpg', 
+            BUTTON: '자세히보기'
+        }
+    ]
+        
+    
     BWlinks.map((BWlink) => {
         const BWdiv = document.createElement('DIV');
         const BWimg = document.createElement('IMG');
-        const BWwarp = document.querySelector('.banner_wrap');
-        BWdiv.className = 'banner'
-        BWimg.src = BWlink;
-        BWdiv.appendChild(BWimg);
-        BWwarp.appendChild(BWdiv);
-    })
-
-    const BWbuttons = ['구매하기', '구매하기', '자세히보기', '자세히보기'];
-    BWbuttons.map((BWbutton) => {
-        const BWdiv = document.createElement('DIV');
         const Newbutton = document.createElement('BUTTON');
         const BWwarp = document.querySelector('.banner_wrap');
         BWdiv.className = 'banner'
-        Newbutton.innerText = BWbutton;
+    
+        Newbutton.innerText = BWlink.BUTTON;
+        BWimg.src = BWlink.src;
+
+        BWdiv.appendChild(BWimg);
         BWdiv.appendChild(Newbutton);
         BWwarp.appendChild(BWdiv);
     })
 
    
+    // best_product
     
+
+
 }

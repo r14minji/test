@@ -56,50 +56,83 @@ window.onload = (function() {
 
     })
     
-    
     //item_area
-    const div = document.createElement("DIV");
-    const img = document.createElement('IMG');
-    const ItemBox = document.querySelector('.item_area')
-    div.className = ('item_img');
-    img.src = "http://www.justone.co.kr/shopimages/jojean/0430010011463.gif?1614675436";
-        
-    ItemBox.appendChild(div);
-    div.appendChild(img);
+   const LIST = [
+        {
+            ref:'http://www.justone.co.kr/shopimages/jojean/0430010011463.gif?1614675436',
+            art:'데님스커트',
+            title:'세뮤니 뒷밴딩 플레어 데님스커트',
+            fee: '17900원',
+            label: '단독주문',
+            labels:'주문폭주',
+            review: '리뷰: 40개'
+        },
+        {
+            ref:'http://www.justone.co.kr/shopimages/jojean/0430010011463.gif?1614675436',
+            art:'데님스커트',
+            title:'세뮤니 뒷밴딩 플레어 데님스커트',
+            fee: '17900원',
+            label: '단독주문',
+            labels:'주문폭주',
+            review: '리뷰: 40개'
+        },
+        {
+            ref:'http://www.justone.co.kr/shopimages/jojean/0430010011463.gif?1614675436',
+            art:'데님스커트',
+            title:'세뮤니 뒷밴딩 플레어 데님스커트',
+            fee: '17900원',
+            label: '단독주문',
+            labels:'주문폭주',
+            review: '리뷰: 40개'
+        },
+        {
+            ref:'http://www.justone.co.kr/shopimages/jojean/0430010011463.gif?1614675436',
+            title:'세뮤니 뒷밴딩 플레어 데님스커트',
+            fee: '17900원',
+            label: '단독주문',
+            labels:'주문폭주',
+            review: '리뷰: 40개'
+        }
 
-    const h3 = document.createElement('H3');
-    h3.className = ('TITLE')
-    const title = document.createElement('세뮤니 뒷밴딩 플레어 데님스커트');
-    h3.appendChild(title);
-    ItemBox.appendChild(h3);
-    
-    const p1 = document.createElement('P');
-    p1.className = ('PRICE')
-    const price = document.createTextNode('5200원');
-    p1.appendChild(price);
-    ItemBox.appendChild(p1);
-    
-    const p2 = document.createElement('P');
-    p2.className = ('label');
-    const span1 = document.createElement('SPAN');
-    span1.className = ('MARK1')
-    const mark1 = document.createTextNode('단독입고');
-    span1.appendChild(mark1);
+    ]
 
-    const span2 = document.createElement('SPAN');
-    span2.className = ('MARK2');
-    const mark2 = document.createTextNode('주문폭주');
-    span2.appendChild(mark2);
+    const ItemArea = document.querySelector('.item_area');
+    LIST.map((item)=> {
+        const ItemBox = document.createElement("DIV");
+        ItemBox.className = 'item_box';
+        const img = document.createElement('div');
+        img.className = 'img';
+        const ItemIMG = document.createElement('img');
+        const h3 = document.createElement('H3');
+        h3.className = 'item_title';
+        const p1 = document.createElement('P');
+        p1.className = 'item_fee';
+        const p2 = document.createElement('P');
+        p2.className = 'item_label';
+        const span1 = document.createElement('SPAN');
+        const span2 = document.createElement('SPAN');
+        const p3 = document.createElement('P');
+        p3.className = 'item_review';
 
-    p2.appendChild(span1);
-    p2.appendChild(span2);
-    ItemBox.appendChild(p2);
+        ItemIMG.src = item.ref;
+        h3.innerText = item.title;
+        p1.innerText = item.fee;
+        span1.innerText = item.label;
+        span2.innerText = item.labels;
+        p3.innerText = item.review;
 
-    const p3 = document.createElement('P');
-    p3.className = ('REVIEW')
-    const review = document.createTextNode('리뷰: 40개');
-    p3.appendChild(review);
-    ItemBox.appendChild(p3);
+        img.appendChild(ItemIMG);
+        p2.appendChild(span1); //얘네 줄바꿈 안하고 연결되서 나오는 이유...?
+        p2.appendChild(span2);
+        ItemBox.appendChild(img);
+        ItemBox.appendChild(h3);
+        ItemBox.appendChild(p1);
+        ItemBox.appendChild(p2);
+        ItemBox.appendChild(p3);
+        ItemArea.appendChild(ItemBox);
+
+
+    })
     
 
 
