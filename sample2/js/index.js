@@ -1,8 +1,9 @@
 window.onload = function() {
     
     //utils_area
-    const utils = ['주문조회', '회원가입', '로그인']; // href 배열로 넣는 방법..?
-    utils.map ((util) => {
+    const Links = ['#', '#', '#', '#']; // href 배열로 넣는 방법..?!
+    const utils = ['주문조회', '회원가입', '로그인']; 
+    utils.map ((util, i) => {
         const li = document.createElement('LI');
         const a = document.createElement('A');
         const ul = document.querySelector('.utils_area ul');
@@ -10,7 +11,7 @@ window.onload = function() {
         ul.appendChild(li);
         li.appendChild(a);
         a.innerText = util;
-        // a.herf = '#';
+        a.setAttribute('href', Links[i]) //setAttribute 를 사용하기
     }) 
     
     //gnb_menu
@@ -94,7 +95,6 @@ window.onload = function() {
     })
 
    
-    // best_product
     
 
 
