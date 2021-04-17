@@ -3,8 +3,9 @@ console.log('Hello World');
 window.onload = (function() {
     
     //social_area
+    const SicialLink = ['#', '#', '#', '#', '#'];
     const socials = ['fas fa-star','fab fa-instagram','fab fa-apple','fab fa-google-play','fab fa-facebook'];
-    socials.map((social) => {
+    socials.map((social, i) => {
         const li = document.createElement('LI');
         const a = document.createElement('A');
         const i = document.createElement('i');
@@ -13,7 +14,7 @@ window.onload = (function() {
         ul.appendChild(li);
         li.appendChild(a);
         a.appendChild(i);
-        a.href = "#"; // 여기에 각각의 링크를 걸려면..?
+        a.setAttribute('href', SicialLink[i]) = "#"; // 링크거는 법
         i.className = social;
         
     })
@@ -133,7 +134,22 @@ window.onload = (function() {
 
 
     })
-    
+
+    //전체 3번 반복
+    // const SectionList = ['📌 할일', '⏳ 진행중', '✅ 종료']
+
+    // SectionList.map((Slist) => {
+    //     const SectionMain = document.querySelector('.col-md-3');
+    //     const SectionListArea = document.createElement('div');
+    //     const SectionName = document.createElement('h3');
+    //     const SectionCard = document.createElement('div');
+
+    //     SectionMain.appendChild(SectionListArea);
+    //     SectionListArea.appendChild(SectionName);
+    //     SectionListArea.appendChild(SectionCard);
+    //     SectionCard.className = 'card';
+    //     SectionCard.
+    // })
 
 
 })
