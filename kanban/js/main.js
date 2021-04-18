@@ -1,9 +1,4 @@
 
-const LIST = [
-    {
-        
-    }
-]
 
 const todo = [
     {
@@ -82,6 +77,26 @@ window.onload = () => {
 
     })
 
+    //전체 3번 반복
+    // const SectionList = ['📌 할일', '⏳ 진행중', '✅ 종료']
+
+    // SectionList.map((Slist) => {
+    //     const SectionMain = document.querySelector('.col-md-3');
+    //     const SectionListArea = document.createElement('div');
+    //     const SectionName = document.createElement('h3');
+    //     const SectionCardArea = document.createElement('ul'); //ul 만들면 되는건지?
+
+    //     SectionMain.appendChild(SectionListArea);
+    //     SectionListArea.appendChild(SectionName);
+    //     SectionListArea.appendChild(SectionCardArea);
+    //     Slist[0].className = 'list_area todo'
+    //     SectionCardArea.className = 'card_area';
+    //     SectionName.innerText = Slist;
+    //     SectionCardArea.innerText = todo.map(list => {}) 
+    // })
+
+
+    //이어서
     const button = document.querySelector('.js-submit-btn');
     const input = document.querySelector('.js-todo-input')
     input.addEventListener('input', (e) => {
@@ -92,5 +107,10 @@ window.onload = () => {
         console.log(input.value)
         localStorage.setItem('title', input.value)
     })
+
+    
+
+   
+
 
 }

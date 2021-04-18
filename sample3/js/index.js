@@ -1,6 +1,6 @@
 window.onload = function() {
 
-    //utils_area li null 값으로 나오는 오류
+    //utils_area li 
     const UtilList = ['네이버를시작페이지로','쥬니어네이버','해피빈'];
     UtilList.map((Ulist) => {
         const utils = document.createElement('li');
@@ -21,7 +21,7 @@ window.onload = function() {
         //appendchild로 해주면 될 것같은데 왜 클래스 명이 또 같냐...ㅎ li태그라 일단 대기.
     })
 
-    // //sum_news
+    // //sum_news li가 null 값인 경우..?
     // const Sumnewslist = 
     //     [
     //     'https://s.pstatic.net/static/newsstand/2020/logo/light/0604/032.png',
@@ -38,10 +38,11 @@ window.onload = function() {
     //     Sumnewslist.map((Sumlist) => {
     //     const Sumli = document.createElement('li');
     //     const Sumimg = document.createElement('img');
-    //     const SumArea = document.querySelector('.sum_news ul');
+    //     const SumArea = document.querySelector('.newsstand_area .sum_news ul');
+        
+    //     Sumimg.src = Sumlist;
     //     SumArea.appendChild(Sumli);
     //     Sumli.appendChild(Sumimg);
-    //     Sumimg.src = Sumlist;
     // })
 
     //today_article
@@ -87,7 +88,7 @@ window.onload = function() {
         TopicMain.appendChild(TopicContent);
         Topic.appendChild(TopicSub);
 
-        TopicSub.className = 'sub'
+        TopicSub.className = 'sub';
         TopicImg.src = Tlist.TopicIMG;
         TopicImg.alt = Tlist.TopicALT;
         TopicTitle.innerText = Tlist.TopicTITLE;
@@ -141,28 +142,28 @@ window.onload = function() {
         Shopdiscount.innerText = Slist.ShopPRICE;
     })
 	
-	// f_banner_area
+	// f_banner_area <br>은 어떻게 하는거지?
     const FBannerList = [
         {
             FBIMG: 'https://ssl.pstatic.net/tveta/libs/1328/1328292/f3e5e27e3d746ade9b22_20210302164937220.jpg',
             FBALT: '선거 정당자료를 구임합니다',
             FBTITLE: '중앙선거관리위원회',
             FBCONTENT:'선거, 정당자료 공개구입',
-            FBDATE:'2021.3.8~3.22 <br>지금확인하러 가기(클릭)'
+            FBDATE:'2021.3.8~3.22<br>지금확인하러 가기(클릭)'
         },
         {
             FBIMG: 'https://ssl.pstatic.net/tveta/libs/1328/1328292/f3e5e27e3d746ade9b22_20210302164937220.jpg',
             FBALT: '선거 정당자료를 구임합니다',
             FBTITLE: '중앙선거관리위원회',
             FBCONTENT:'선거, 정당자료 공개구입',
-            FBDATE:'2021.3.8~3.22 <br>지금확인하러 가기(클릭)'
+            FBDATE:'2021.3.8~3.22<br>지금확인하러 가기(클릭)'
         },
         {
             FBIMG: 'https://ssl.pstatic.net/tveta/libs/1328/1328292/f3e5e27e3d746ade9b22_20210302164937220.jpg',
             FBALT: '선거 정당자료를 구임합니다',
             FBTITLE: '중앙선거관리위원회',
             FBCONTENT:'선거, 정당자료 공개구입',
-            FBDATE:'2021.3.8~3.22 <br>지금확인하러 가기(클릭)'
+            FBDATE:'2021.3.8~3.22<br>지금확인하러 가기(클릭)'
         },
     ]
 
@@ -187,8 +188,8 @@ window.onload = function() {
         FBImg.src = FBlist.FBIMG;
         FBImg.alt = FBlist.FBALT;
         FBTitle.innerText = FBlist.FBTITLE;
-        FBContent.innerText = FBlist.FBTITLE;
-        FBDate.innerText = FBlist.FBCONTENT;
+        FBContent.innerText = FBlist.FBCONTENT;
+        FBDate.innerText = FBlist.FBDATE;
         
     })
 

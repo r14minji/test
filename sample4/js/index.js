@@ -1,6 +1,5 @@
 window.onload = function() {
     
-    //여기도 li 태그가 문제
     const MenuList = [
         {
             MenuFA: 'fas fa-home',
@@ -26,8 +25,9 @@ window.onload = function() {
         MenuFavicon.className = Mlist.MenuFA;
         MenuName.innerText = Mlist.MunuTITLE;
         MenuGroup.appendChild(MenuContent);
+        MenuContent.appendChild(MenuLine);
+        MenuContent.appendChild(MenuName);
         MenuLine.appendChild(MenuFavicon);
-        MenuLine.appendChild(MenuName);
 
     })
 

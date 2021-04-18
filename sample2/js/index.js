@@ -1,7 +1,7 @@
 window.onload = function() {
     
     //utils_area
-    const Links = ['#', '#', '#', '#']; // href 배열로 넣는 방법..?!
+    const Links = ['#', '#', '#', '#']; // href 배열로 넣기
     const utils = ['주문조회', '회원가입', '로그인']; 
     utils.map ((util, i) => {
         const li = document.createElement('LI');

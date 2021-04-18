@@ -68,3 +68,22 @@ const links = ['http://img.just-one.co.kr/shopping_mall/mainimage/banner_four1.j
 
         BWwarp.appendChild(BWdiv);
     })
+
+
+
+    //유튜브. 이게 정답/ li태그 연결할 때, 자손관계 헷갈리면 안나온다아.
+    MenuList.map((Mlist) => {
+        const MenuGroup = document.querySelector('.menu_groub ul');
+        const MenuContent = document.createElement('li');
+        const MenuLine = document.createElement('p');
+        const MenuFavicon = document.createElement('i');
+        const MenuName = document.createElement('p');
+
+        MenuFavicon.className = Mlist.MenuFA;
+        MenuName.innerText = Mlist.MunuTITLE;
+        MenuGroup.appendChild(MenuContent);
+        MenuContent.appendChild(MenuLine);
+        MenuContent.appendChild(MenuName);
+        MenuLine.appendChild(MenuFavicon); //html에 p와 li를 나란히 썼으나 자손관계다! 이거 잘 못 연결하면 오류!
+
+    })

@@ -8,14 +8,14 @@ window.onload = (function() {
     socials.map((social, i) => {
         const li = document.createElement('LI');
         const a = document.createElement('A');
-        const i = document.createElement('i');
+        const Si = document.createElement('Si');
         const ul = document.querySelector('.social_area ul');
         
         ul.appendChild(li);
         li.appendChild(a);
-        a.appendChild(i);
-        a.setAttribute('href', SicialLink[i]) = "#"; // 링크거는 법
-        i.className = social;
+        a.appendChild(Si);
+        a.setAttribute('href', SicialLink[i]) // 링크
+        Si.className = social;
         
     })
 
@@ -131,25 +131,8 @@ window.onload = (function() {
         ItemBox.appendChild(p2);
         ItemBox.appendChild(p3);
         ItemArea.appendChild(ItemBox);
-
-
-    })
-
-    //전체 3번 반복
-    // const SectionList = ['📌 할일', '⏳ 진행중', '✅ 종료']
-
-    // SectionList.map((Slist) => {
-    //     const SectionMain = document.querySelector('.col-md-3');
-    //     const SectionListArea = document.createElement('div');
-    //     const SectionName = document.createElement('h3');
-    //     const SectionCard = document.createElement('div');
-
-    //     SectionMain.appendChild(SectionListArea);
-    //     SectionListArea.appendChild(SectionName);
-    //     SectionListArea.appendChild(SectionCard);
-    //     SectionCard.className = 'card';
-    //     SectionCard.
-    // })
+    
+    }) 
 
 
 })
