@@ -1,79 +1,156 @@
 window.onload = function() {
 
-    //1-1. 뼈대 만들고 데이터 가져오려다가 스탑. 데이터 어디서 가져와?
-
-    //2. 로컬에 저장할 거야. form에 입력한 값을. 입력한 값이 저장되는 변수가 필요함.
-
-    const form = document.querySelector('.form_area form');
-    const title = document.querySelector('.js-todo-input'); 
-    const content = document.querySelector('.js-todo-detail');
-    
-    //4. 지금까지 저장된 아이들 누적해서 저장하는게 필요하겟징
+    const todo = JSON.parse(localStorage.getItem('todoList'));
+    const usings = JSON.parse(localStorage.getItem('using'));
+    const dones = JSON.parse(localStorage.getItem('done'));
 
     
-    //3. 제출 버튼을 눌렀을 때 이 입력값들이 로컬에 저장되어야 하겟지?
+    const todoUl = document.querySelector('.todo .card_area');
+    const usingUl = document.querySelector('.working .card_area');
+    const doneUl = document.querySelector('.done .card_area');
 
-    form.addEventListener('sumit', (e) => {
-        e.preventDefault();
-        const data = {
-            title: title.value,
-            contents: content.value,
-            date: fullDate
-        }
-        todoList.push(data);
-        JSON.stringify(todoList) //5. 받아올 때 스트링으로만 저장되기 때문에, 객체를 만들어서 입력하는 값들을 저장한닷
-        localStorage.setItem("todo", JSON.stringify(todoList));
-        window.location.reload();
+    localStorage.getItem('todoList') && todo.forEach(data => {
+        const li = document.createElement('LI');
+        const h4 = document.createElement('H4');
+        const content = document.createElement('P');
+        const Wdate = document.createElement('P');
+        const btnArea = document.createElement('DIV');
+        const moveArea = document.createElement('DIV');
+        const modifyBtn = document.createElement('BUTTON');
+        const deleteBtn = document.createElement('BUTTON');
+        const moveLeft = document.createElement('BUTTON');
+        const moveRight = document.createElement('BUTTON');
     
+        li.classList.add('card');
+        Wdate.classList.add('date');
+        btnArea.classList.add('btn_area');
+        moveArea.classList.add('move_area');
+        moveRight.classList.add('right_move');
+    
+        h4.innerText = data.title
+        content.innerText = data.content
+        Wdate.innerText = data.date
+        modifyBtn.innerText = '🖌';
+        deleteBtn.innerText = '❌';
+        moveLeft.innerText = '👈';
+        moveRight.innerText = '👉';
+    
+        todoUl.appendChild(li)
+        li.appendChild(h4);
+        li.appendChild(content);
+        li.appendChild(Wdate);
+        li.appendChild(btnArea);
+        li.appendChild(moveArea);
+        btnArea.appendChild(modifyBtn)
+        btnArea.appendChild(deleteBtn)
+        moveArea.appendChild(moveLeft)
+        moveArea.appendChild(moveRight)    
     })
-
-    //6. 로컬에 저장한거 다시 객체로 가져와서 변수에 담아둬
-    const todos = JSON.parse(localStorage.getItem('todo'));
     
-    const todoUl = document.querySelector('todo .card_area');
+    localStorage.getItem('using') && usings.forEach(data => {
+        const li = document.createElement('LI');
+        const h4 = document.createElement('H4');
+        const content = document.createElement('P');
+        const date = document.createElement('P');
+        const btnArea = document.createElement('DIV');
+        const moveArea = document.createElement('DIV');
+        const modifyBtn = document.createElement('BUTTON');
+        const deleteBtn = document.createElement('BUTTON');
+        const moveLeft = document.createElement('BUTTON');
+        const moveRight = document.createElement('BUTTON');
 
-   //1. 반복 구조인 뼈대를 만든다. 그 다음엔 데이터를 데려와야해
-   localStorage.getItem('todo') && todos.forEach((data) => {
-
-        const li = document.createElement("LI");
-        const h4 = document.createElement("H4");
-        const content = document.createElement("P");
-        const date = document.createElement("P");
-        const btnarea = document.createElement("DIV");
-        const modifyBtn = document.createElement("BUTTON");
-        const deletBtn = document.createElement("BUTTON");
-        const movearea = document.createElement("DIV");
-        const moveLeft = document.createElement("BUTTON");
-        const MoveRight = document.createElement("BUTTON");
-        
         li.classList.add('card');
         date.classList.add('date');
-        btnarea.classList.add('btn_area');
-        movearea.classList.add('move_area');
-        
-        h4.innerText = data.title //title 입력한 값 로컬에 저장. 입력1번. 키 값 1개. 값에 스트링만 가능. 객체로 저장
-        content.innerText = data.contents // content 입력한 값
-        date.innerText = data.date //date 입력값.
-        modifyBtn.innerText = "🖌";
-        deletBtn.innerText = "❌";
-        moveLeft.innerText = "👈";
-        MoveRight.innerText = "👉";
+        btnArea.classList.add('btn_area');
+        moveArea.classList.add('move_area');
+        moveLeft.classList.add('left_move');
+        moveRight.classList.add('right_move');
 
+        h4.innerText = data.title;
+        content.innerText = data.contents;
+        date.innerText = data.date;
+        modifyBtn.innerText = '🖌';
+        deleteBtn.innerText = '❌';
+        moveLeft.innerText = '👈';
+        moveRight.innerText = '👉';
+
+        usingUl.appendChild(li)
         li.appendChild(h4);
         li.appendChild(content);
         li.appendChild(date);
-        li.appendChild(btnarea);
-        li.appendChild(movearea);
-        btnarea.appendChild(modifyBtn);
-        btnarea.appendChild(deletBtn);
-        movearea.appendChild(moveLeft);
-        movearea.appendChild(MoveRight);
-        todoUl.appendChild(li);
-})
-    
+        li.appendChild(btnArea);
+        li.appendChild(moveArea);
+        btnArea.appendChild(modifyBtn)
+        btnArea.appendChild(deleteBtn)
+        moveArea.appendChild(moveLeft)
+        moveArea.appendChild(moveRight)
+    })
+
+
+    localStorage.getItem('done') && dones.forEach(data => {
+        const li = document.createElement('LI');
+        const h4 = document.createElement('H4');
+        const content = document.createElement('P');
+        const date = document.createElement('P');
+        const btnArea = document.createElement('DIV');
+        const moveArea = document.createElement('DIV');
+        const modifyBtn = document.createElement('BUTTON');
+        const deleteBtn = document.createElement('BUTTON');
+        const moveLeft = document.createElement('BUTTON');
+        const moveRight = document.createElement('BUTTON');
+
+        li.classList.add('card');
+        date.classList.add('date');
+        btnArea.classList.add('btn_area');
+        moveArea.classList.add('move_area');
+        moveLeft.classList.add('left_move');
+
+        h4.innerText = data.title;
+        content.innerText = data.contents;
+        date.innerText = data.date;
+        modifyBtn.innerText = '🖌';
+        deleteBtn.innerText = '❌';
+        moveLeft.innerText = '👈';
+        moveRight.innerText = '👉';
+
+        doneUl.appendChild(li)
+        li.appendChild(h4);
+        li.appendChild(content);
+        li.appendChild(date);
+        li.appendChild(btnArea);
+        li.appendChild(moveArea);
+        btnArea.appendChild(modifyBtn)
+        btnArea.appendChild(deleteBtn)
+        moveArea.appendChild(moveLeft)
+        moveArea.appendChild(moveRight)
+    })
+
 
     
-const todoList = todos || []
+    const form = document.querySelector('.form_area form');
+    const todoInput = document.querySelector('.js-todo-input');
+    const textInput = document.querySelector('.js-todo-detail');
+    const todolist = todo || []
+    // const submitBtn = document.querySelector('.js-submit-btn');
 
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        // console.log(todoInput.value)
+        const newDate = new Date();
+        const fullDate =  `${newDate.getFullYear()}-${newDate.getMonth()+1}-${newDate.getDate()}`
 
+        
+        const data = {
+            title: todoInput.value,
+            content: textInput.value,
+            date: fullDate 
+        }
+        todolist.push(data);
+        JSON.stringify(todolist);
+        localStorage.setItem("todoList", JSON.stringify(todolist)); // 
+        window.location.reload();
+        
+
+    })
+    
 }
