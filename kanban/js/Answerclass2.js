@@ -4,6 +4,7 @@ window.onload = function() {
     const todos = JSON.parse(localStorage.getItem('todo'));
     const usings = JSON.parse(localStorage.getItem('using'));
     const dones = JSON.parse(localStorage.getItem('done'));
+
     const todoUl = document.querySelector('.todo .card_area');
     const usingUl = document.querySelector('.working .card_area');
     const doneUl = document.querySelector('.done .card_area');
@@ -30,10 +31,8 @@ window.onload = function() {
     const usingBtnsRight = document.querySelectorAll('.right_move.working');
     const usingBtnsLeft = document.querySelectorAll('.left_move.working');
     const doneBtnsRight = document.querySelectorAll('.left_move.done');
-    moveControl(todoBtnsRight, todoList, usingList, 'todo', 'using');
-    moveControl(usingBtnsRight, usingList, doneList, 'using', 'done');
-    moveControl(usingBtnsLeft, usingList, todoList, 'using', 'todo');
-    moveControl(doneBtnsRight, doneList, usingList, 'done', 'using')
+
+
     // todoBtnsRight.forEach((btn, i) => {
     //     btn.addEventListener('click', (e) => {
     //         usingList.push(todoList[i])
@@ -99,6 +98,12 @@ window.onload = function() {
     })
 }
 
+
+moveControl(todoBtnsRight, todoList, usingList, 'todo', 'using');
+moveControl(usingBtnsRight, usingList, doneList, 'using', 'done');
+moveControl(usingBtnsLeft, usingList, todoList, 'using', 'todo');
+moveControl(doneBtnsRight, doneList, usingList, 'done', 'using')
+
 function moveControl (elementBtns, prevList, nextList, prevName, nextName) {
     elementBtns.forEach((btn, i) => {
         btn.addEventListener('click', (e) => {
@@ -110,6 +115,7 @@ function moveControl (elementBtns, prevList, nextList, prevName, nextName) {
         })
     })
 }
+
 
 
 function render (data, ul) {
