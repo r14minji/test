@@ -20,9 +20,9 @@ export const $navArea = `
   <nav class="nav"></nav>
 `;
 
-export const $slideBaber = `
-  <img />
-`;
+// export const $slideBaber = `
+//   <img src="" art  />
+// `;
 
 export const $contentsArea = `
   <div class="card_banner"></div>
