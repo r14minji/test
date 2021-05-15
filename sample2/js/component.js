@@ -4,7 +4,7 @@ export const $wrapArea = `
   <section class="window_banner"></section>
   <section class="best_product"></section>
   <footer class="footer_area"></footer>
-`
+`;
 export const $headerArea = `
 <div class="utils_area">
   <ul></ul>
@@ -14,21 +14,24 @@ export const $headerArea = `
   <nav class="gnb_menu">
     <ul></ul>
   </nav>
+  <div class="gnb_contents">
+    <div class="search"></div>
+    <div class="cart">
+      <i class="fas fa-shopping-cart"></i>
+    </div>
+  </div>
 </div>
-<div class="gnb_contents">
-  <div class="search"></div>
-</div>
-`
+`;
 
 export const $windowArea = `
 <h1 class="hidden">윈도우 배너</h1>
 <div class="banner_wrap"></div>
-`
+`;
 
 export const $bestArea = `
 <h1>인기 상품</h1>
 <div class="item_area"></div>
-`
+`;
 
 export const $footerArea = `
 <div class="f_menu_area">
@@ -45,4 +48,4 @@ export const $footerArea = `
   <button>회원가입</button>
 </div>
 <div class="sitemap"></div>
-`
+`;
