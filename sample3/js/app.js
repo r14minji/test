@@ -6,7 +6,3 @@ import {
   $sideContentArea,
   $footerArea,
 } from "./component.js";
-
-function render() {}
-
-render();

@@ -14,7 +14,7 @@ export const $writeForm = `
     <button type="submit" class="btn btn-default btn-primary js-submit-btn">제출</button>
 </form>
 </div>
-`
+`;
 
 export const $contentArea = `
 <div class="row">
@@ -23,7 +23,7 @@ export const $contentArea = `
     <div class="col-md-3">3</div>
     <div class="col-md-3">4</div>
 </div>
-`
+`;
 
 export const $todoList = `
 <div class="list_area todo">
@@ -31,7 +31,7 @@ export const $todoList = `
     <ul class="card_area">
     </ul>
 </div>
-`
+`;
 
 export const $usingList = `
 <div class="list_area working">
@@ -39,7 +39,7 @@ export const $usingList = `
     <ul class="card_area">
     </ul>
 </div>
-`
+`;
 
 export const $doneList = `
 <div class="list_area done">
@@ -47,4 +47,4 @@ export const $doneList = `
     <ul class="card_area">
     </ul>
 </div>
-`
+`;
