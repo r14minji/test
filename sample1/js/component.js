@@ -20,10 +20,6 @@ export const $navArea = `
   <nav class="nav"></nav>
 `;
 
-// export const $slideBaber = `
-//   <img src="" art  />
-// `;
-
 export const $contentsArea = `
   <div class="card_banner"></div>
   <div class="weekly_best"></div>

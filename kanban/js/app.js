@@ -1,188 +1,69 @@
 import {
-  $contentArea,
-  $writeForm,
-  $todoList,
-  $usingList,
-  $doneList,
+  $WriteForm,
+  $GridLayout,
+  $TodoList,
+  $UsingList,
+  $DoneList,
+  $ModifyModal,
+  card,
 } from "./conponent.js";
 
-function wraprender(data, ul) {
-  const wrap = document.querySelector("#wrap");
-  wrap.innerHTML = $contentArea;
-  const col = document.querySelectorAll(".col-md-3");
-  col[0].innerHTML = $writeForm;
-  col[1].innerHTML = $todoList;
-  col[2].innerHTML = $usingList;
-  col[3].innerHTML = $doneList;
-}
-wraprender();
+import { createDate, cardDelete, nextCard, prevCard } from "./utils/utils.js";
 
-const todos = JSON.parse(localStorage.getItem("todo"));
-const usings = JSON.parse(localStorage.getItem("using"));
-const dones = JSON.parse(localStorage.getItem("done"));
+const todos = JSON.parse(localStorage.getItem("todos")) || [];
+const usings = JSON.parse(localStorage.getItem("usings")) || [];
+const dones = JSON.parse(localStorage.getItem("done")) || [];
 
-const todoUl = document.querySelector(".todo .card_area");
-const usingUl = document.querySelector(".working .card_area");
-const doneUl = document.querySelector(".done .card_area");
+const cardRender = (lists, btnName) => {
+  const newArr = lists.map((item) => card(item, btnName));
+  console.log(newArr);
+  return newArr.join("");
+};
 
-let todoList = [];
-let usingList = [];
-let doneList = [];
+const formEvet = () => {
+  const $form = document.querySelector(".form_area form");
+  const $todoInput = document.querySelector(".title_input");
+  const $comentInput = document.querySelector(".content_input");
+  $form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const title = $todoInput.value;
+    const contents = $comentInput.value;
+    if (!title) return alert("할일을 입력해주세요.");
+    if (!contents) return alert("내용을 입력해주세요.");
+    const formdata = { title, contents, date: createDate() };
+    localStorage.setItem("todos", JSON.stringify(todos));
+    todos.push(formdata);
 
-if (todoList.length === 0 && localStorage.getItem("todo")) {
-  todoList = todos;
-}
-if (usingList.length === 0 && localStorage.getItem("using")) {
-  usingList = usings;
-}
-if (doneList.length === 0 && localStorage.getItem("done")) {
-  doneList = dones;
-}
-
-localStorage.getItem("todo") && render(todos, todoUl);
-localStorage.getItem("using") && render(usings, usingUl);
-localStorage.getItem("done") && render(dones, doneUl);
-
-// form
-const form = document.querySelector(".form_area form");
-const submitBtn = document.querySelector(".js-submit-btn");
-const todoInput = document.querySelector(".js-todo-input");
-const contentInput = document.querySelector(".js-todo-detail");
-
-todoInput.focus();
-
-if (todoList.length === 0 && localStorage.getItem("todo")) {
-  todoList = todos;
-}
-submitBtn.addEventListener("submit", (e) => {
-  e.preventDefault();
-});
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
-  if (!todoInput.value) return alert("할일을 입력해주세요");
-  if (!contentInput.value) return alert("내용을 입력해주세요");
-  todoList.push({
-    title: todoInput.value,
-    contents: contentInput.value,
-    date: `${new Date().getFullYear()}-${
-      new Date().getMonth() + 1
-    }-${new Date().getDate()}`,
+    render();
   });
-  localStorage.setItem("todo", JSON.stringify(todoList));
-  todoInput.value = null;
-  contentInput.value = null;
-  render(todoList, todoUl);
-});
+};
 
-function render(data, ul) {
-  const currentName = ul.parentNode.className.split(" ")[1];
-  const a = data.map((item) => {
-    const component = `
-            <li class="card">
-                <h4>${item.title}</h4>
-                <p>${item.contents}</p>
-                <p class="date">${item.date}</p>
-                <div class="btn_area">
-                    <button>🖌</button>
-                    <button class="delete_content ${currentName}">❌</button>
-                </div>
-                <div class="move_area">
-                    <button class="left_move ${currentName}">👈</button>
-                    <button class="right_move ${currentName}">👉</button>
-                </div>
-            </li>
-        `;
-    return component;
-  });
-  ul.innerHTML = a;
-}
+const render = () => {
+  const root = document.querySelector("#root");
+  root.innerHTML = $GridLayout;
+  const col = document.querySelectorAll(".column");
+  col[0].innerHTML = $WriteForm;
+  col[1].innerHTML = $TodoList;
+  col[2].innerHTML = $UsingList;
+  col[3].innerHTML = $DoneList;
 
-const todoBtnsRight = document.querySelectorAll(".right_move.todo");
-const usingBtnsRight = document.querySelectorAll(".right_move.working");
-const usingBtnsLeft = document.querySelectorAll(".left_move.working");
-const doneBtnsRight = document.querySelectorAll(".left_move.done");
+  formEvet();
 
-moveControl(
-  todoBtnsRight,
-  todoList,
-  usingList,
-  "todo",
-  "using",
-  todoUl,
-  usingUl
-);
-moveControl(
-  usingBtnsRight,
-  usingList,
-  doneList,
-  "using",
-  "done",
-  usingUl,
-  doneUl
-);
-moveControl(
-  usingBtnsLeft,
-  usingList,
-  todoList,
-  "using",
-  "todo",
-  usingUl,
-  todoUl
-);
-moveControl(
-  doneBtnsRight,
-  doneList,
-  usingList,
-  "done",
-  "using",
-  doneUl,
-  usingUl
-);
+  const todoUl = document.querySelector(".todo .list_area");
+  const usingUl = document.querySelector(".using .list_area");
+  const doneUl = document.querySelector(".done .list_area");
+  todoUl.innerHTML = cardRender(todos, "todos");
+  usingUl.innerHTML = cardRender(usings, "usings");
+  doneUl.innerHTML = cardRender(dones, "dones");
 
-function moveControl(
-  elementBtns,
-  prevList,
-  nextList,
-  prevName,
-  nextName,
-  prevUl,
-  nextUl
-) {
-  elementBtns.forEach((btn, i) => {
-    btn.addEventListener("click", (e) => {
-      nextList.push(prevList[i]);
-      prevList.splice(i, 1);
-      localStorage.setItem(prevName, JSON.stringify(prevList));
-      localStorage.setItem(nextName, JSON.stringify(nextList));
-      render(prevList, prevUl);
-      render(nextList, nextUl);
-    });
-  });
-}
+  cardDelete("todos", todos, render);
+  cardDelete("usings", usings, render);
+  cardDelete("dones", dones, render);
 
-//delete
-const todoDelete = document.querySelectorAll(".delete_content.todo");
-const workingDelete = document.querySelectorAll(".delete_content.working");
-const doneDelete = document.querySelectorAll(".delete_content.done");
+  nextCard("todos", todos, "usings", usings, render);
+  nextCard("usings", usings, "dones", dones, render);
+  prevCard("usings", usings, "todos", todos, render);
+  prevCard("dones", dones, "usings", usings, render);
+};
 
-todoDelete.forEach((btn, i) => {
-  btn.addEventListener("click", (e) => {
-    todoList.splice(i, 1);
-    localStorage.setItem("todo", JSON.stringify(todoList));
-    render(todoList, todoUl);
-  });
-});
-workingDelete.forEach((btn, i) => {
-  btn.addEventListener("click", (e) => {
-    usingList.splice(i, 1);
-    localStorage.setItem("using", JSON.stringify(usingList));
-    render(usingList, usingUl);
-  });
-});
-doneDelete.forEach((btn, i) => {
-  btn.addEventListener("click", (e) => {
-    doneList.splice(i, 1);
-    localStorage.setItem("done", JSON.stringify(doneList));
-    render(doneList, doneUl);
-  });
-});
+render();
