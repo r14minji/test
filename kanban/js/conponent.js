@@ -32,7 +32,7 @@ export const card = (item, btnName) => {
       <div class="content">
           <div class="header">${item.title}</div>
           <div class="meta">${item.date}</div>
-          <div class="description">${item.content}</div>
+          <div class="description">${item.contents}</div>
       </div>
   </div>
 </div>
