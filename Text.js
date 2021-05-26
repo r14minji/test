@@ -1,3 +1,5 @@
+import { card } from "./kanban/js/conponent";
+
 const storageinput = document.querySelector(".storage");
 const text = document.querySelector(".text");
 const button = document.querySelector(".button");

@@ -26,6 +26,8 @@ export const cardDelete = (area, list, render) => {
       list.splice(i, 1);
       localStorage.setItem(area, JSON.stringify(list));
       render();
+      console.log(deletBtn);
+      console.log([...deletBtn]);
     });
   });
 };

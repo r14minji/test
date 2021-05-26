@@ -16,7 +16,6 @@ const dones = JSON.parse(localStorage.getItem("done")) || [];
 
 const cardRender = (lists, btnName) => {
   const newArr = lists.map((item) => card(item, btnName));
-  console.log(newArr);
   return newArr.join("");
 };
 
