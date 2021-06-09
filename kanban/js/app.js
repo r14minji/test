@@ -8,7 +8,14 @@ import {
   card,
 } from "./conponent.js";
 
-import { createDate, cardDelete, nextCard, prevCard } from "./utils/utils.js";
+import {
+  createDate,
+  cardDelete,
+  nextCard,
+  prevCard,
+  cardModify,
+  modifyClose,
+} from "./utils/utils.js";
 
 const todos = JSON.parse(localStorage.getItem("todos")) || [];
 const usings = JSON.parse(localStorage.getItem("usings")) || [];
@@ -39,7 +46,11 @@ const formEvet = () => {
 
 const render = () => {
   const root = document.querySelector("#root");
+  const modal = document.createElement("div");
+  modal.classList.add("modal_wrap");
+  modal.innerHTML = $ModifyModal;
   root.innerHTML = $GridLayout;
+  root.appendChild(modal);
   const col = document.querySelectorAll(".column");
   col[0].innerHTML = $WriteForm;
   col[1].innerHTML = $TodoList;
@@ -63,6 +74,9 @@ const render = () => {
   nextCard("usings", usings, "dones", dones, render);
   prevCard("usings", usings, "todos", todos, render);
   prevCard("dones", dones, "usings", usings, render);
+
+  cardModify("todos", todos, render);
+  modifyClose();
 };
 
 render();

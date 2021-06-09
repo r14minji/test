@@ -57,3 +57,51 @@ export const prevCard = (prevKey, prevList, nextKey, nextList, render) => {
     });
   });
 };
+
+export const cardModify = (area, list, render) => {
+  const modifyBtn = document.querySelectorAll(`.${area}.modify`);
+  const modal = document.querySelector(".modal_wrap");
+  const modifyTitle = document.querySelector(".modal_contents .title_input");
+  const modifyContent = document.querySelector(
+    ".modal_contents .content_input"
+  );
+  [...modifyBtn].forEach((btn, i) => {
+    btn.addEventListener("click", () => {
+      modal.style.display = "block";
+      modifyTitle.value = list[i].title;
+      modifyContent.value = list[i].contents;
+      modifySave(area, list, i, render);
+    });
+  });
+};
+
+export const modifyClose = () => {
+  const modalBtn = document.querySelector(".modal_close");
+  const modal = document.querySelector(".modal_wrap");
+  modalBtn.addEventListener("click", () => {
+    modal.style.display = "none";
+  });
+  window.addEventListener("keydown", (e) => {
+    if (e.keyCode === 27) {
+      console.log("sec");
+      modal.style.display = "none";
+    }
+  });
+};
+
+export const modifySave = (area, list, index, render) => {
+  const saveBtn = document.querySelector(".modal_footer .button");
+  const modalTitle = document.querySelector(".modal_contents .title_input");
+  const modalContents = document.querySelector(
+    ".modal_contents .content_input"
+  );
+  saveBtn.addEventListener("click", () => {
+    const title = modalTitle.value;
+    const contents = modalContents.value;
+    const modaldata = { title, contents, date: createDate() };
+    list.splice(index, 1, modaldata);
+    localStorage.setItem(area, JSON.stringify(list));
+    modifyClose();
+    render();
+  });
+};
